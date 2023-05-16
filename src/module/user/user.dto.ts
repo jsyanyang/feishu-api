@@ -1,4 +1,4 @@
 export class UserDto{
     phone: string
-    password: string
+    passwd: string
 }

@@ -6,20 +6,20 @@ import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-  // constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
-  // @Get()
-  // getHello(): string {
-  //   return this.appService.getHello();
-  // }
+  @Get()
+  getHello(): string {
+    return 'hello';
+  }
   @Post('create')
-  create(@Body() user: UserDto, @Res() res: Response){
+  async create(@Body() user: UserDto, @Res() res: Response){
   console.log("🚀 ~ file: user.controller.ts:16 ~ AppController ~ create ~ user:", user)
 
-  //  const result = this.userService.create(user)
-  //   console.log("🚀 ~ file: user.controller.ts:19 ~ AppController ~ create ~ result:", result)
-  //   res.json({
-  //     result
-  //   })
+   const result = await this.userService.create(user)
+    console.log("🚀 ~ file: user.controller.ts:19 ~ AppController ~ create ~ result:", result)
+    res.json({
+      result
+    })
   }
 }
